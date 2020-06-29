@@ -184,6 +184,14 @@ namespace GraphQL.Maybe.Maybe_Tests
             }
 
             [TestMethod]
+            public void TestFromNullableValue()
+            {
+                Assert.AreEqual(324, Maybe.FromValue(new int?(324)).Value);
+                Assert.IsFalse(Maybe.FromValue(new bool?()).HasValue);
+                Assert.IsFalse(Maybe.FromValue<int>(null).HasValue);
+            }
+
+            [TestMethod]
             public void TestUnderlyingTypeNull()
             {
                 Assert.ThrowsException<ArgumentNullException>(() => Maybe.GetUnderlyingType(null));

@@ -18,7 +18,17 @@ namespace GraphQL.Maybe
         /// <typeparam name="T">The type of the value.</typeparam>
         /// <param name="value">An object to be encapsulated</param>
         /// <returns>A <see cref="Maybe{T}"/> with the specified value.</returns>
-        public static Maybe<T> FromValue<T>(T value) => new Maybe<T>(value);
+        public static Maybe<T> FromValue<T>(T value) => 
+            new Maybe<T>(value);
+
+        /// <summary>
+        /// Returns a <see cref="Maybe{T}"/> that holds the nullable's internal value.
+        /// </summary>
+        /// <typeparam name="T">The type of the value.</typeparam>
+        /// <param name="value">An object to be encapsulated</param>
+        /// <returns>A <see cref="Maybe{T}"/> with the specified value or <see cref="Maybe{T}.None"/> if nullable is null.</returns>
+        public static Maybe<T> FromValue<T>(T? value) where T: struct => 
+            value.HasValue ? new Maybe<T>(value.Value) : Maybe<T>.None;
 
         /// <summary>
         /// Returns the underlying type argument of the specified maybe type.
