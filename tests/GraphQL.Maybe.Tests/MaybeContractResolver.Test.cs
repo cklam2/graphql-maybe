@@ -42,5 +42,43 @@ namespace GraphQL.Maybe.MaybeContractResolver_Test
             Assert.IsTrue(property.ShouldSerialize(new { Id = new Maybe<int>(5) }));
             Assert.IsFalse(property.ShouldSerialize(new { Id = Maybe<int>.None }));
         }
+
+        [TestMethod]
+        public void TestUpdateShouldSerializeMaybeField()
+        {
+            MaybeContractResolverWrapper testWrapper = new MaybeContractResolverWrapper();
+            JsonProperty property = new JsonProperty
+            {
+                PropertyType = typeof(Maybe<string>),
+                PropertyName = nameof(FakeClass.Name)
+            };
+
+            FakeClass fc = new FakeClass
+            {
+                Name = "test"
+            };
+
+            Assert.IsNotNull(testWrapper.TestUpdateShouldSerialize(property));
+            Assert.IsTrue(property.ShouldSerialize(fc));
+        }
+
+        [TestMethod]
+        public void TestUpdateShouldSerializeMaybeProtectedField()
+        {
+            MaybeContractResolverWrapper testWrapper = new MaybeContractResolverWrapper();
+            JsonProperty property = new JsonProperty
+            {
+                PropertyType = typeof(Maybe<float>),
+                PropertyName = "Price"
+            };
+
+            FakeClass fc = new FakeClass
+            {
+                Name = "test"
+            };
+
+            Assert.IsNotNull(testWrapper.TestUpdateShouldSerialize(property));
+            Assert.IsFalse(property.ShouldSerialize(fc));
+        }
     }
 }

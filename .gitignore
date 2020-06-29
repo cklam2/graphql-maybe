@@ -7,5 +7,6 @@
 *.nupkg
 
 TestResults/
+coverage/
 [Oo]bj/
 [Bb]in/

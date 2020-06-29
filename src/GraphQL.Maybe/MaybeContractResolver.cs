@@ -45,13 +45,13 @@ namespace GraphQL.Maybe.Serialization
                 property.ShouldSerialize = instance =>
                 {
                     Type t = instance.GetType();
-                    PropertyInfo pi = t.GetProperty(property.PropertyName);
+                    PropertyInfo pi = t.GetProperty(property.PropertyName, BindingFlags.Instance | BindingFlags.Public);
                     if (pi != null)
                     {
                         return Maybe.HasValue(pi.GetValue(instance, null));
                     }
 
-                    FieldInfo fi = t.GetField(property.PropertyName);
+                    FieldInfo fi = t.GetField(property.PropertyName, BindingFlags.Instance | BindingFlags.Public);
                     if (fi != null)
                     {
                         return Maybe.HasValue(fi.GetValue(instance));
