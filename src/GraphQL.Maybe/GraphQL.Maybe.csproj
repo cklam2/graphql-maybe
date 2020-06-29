@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <Authors>cklam2</Authors>
+    <Description>Library to wrap nullable GraphGL fields</Description>
+    <RepositoryUrl>https://github.com/cklam2/graphql-maybe</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Graphql, Maybe, Nullable</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

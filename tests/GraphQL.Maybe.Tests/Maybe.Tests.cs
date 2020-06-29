@@ -198,6 +198,12 @@ namespace GraphQL.Maybe.Maybe_Tests
             }
 
             [TestMethod]
+            public void TestUnderlyingTypeUnknown()
+            {
+                Assert.IsNull(Maybe.GetUnderlyingType(typeof(Version)));
+            }
+
+            [TestMethod]
             public void TestUnderlyingValueType()
             {
                 Maybe<int> mi = Maybe<int>.None;
