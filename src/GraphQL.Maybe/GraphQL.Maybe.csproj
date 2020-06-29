@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Maybe.Class.cs">
+      <DependentUpon>Maybe.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Maybe.Class.Internal.cs">
+      <DependentUpon>Maybe.Class.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
