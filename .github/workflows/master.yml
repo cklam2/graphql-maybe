@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Cobertura
-        path: /**/GraphQL.Maybe.Tests/coverage.cobertura.xml
+        path: ./**/coverage.cobertura.xml
