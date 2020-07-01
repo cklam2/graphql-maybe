@@ -1,4 +1,4 @@
-name: .NET Core
+name: master
 
 on:
   push:
@@ -23,3 +23,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: Cobertura
+        path: coverage.cobertura.xml
